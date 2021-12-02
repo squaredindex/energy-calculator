@@ -2,6 +2,7 @@
   --dark: #111827;
   --light: #f9fafb;
   --highlight: #fbbf24;
+  --dimmed: #6b7280;
 }
 
 ::selection {
@@ -43,8 +44,22 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+input::placeholder {
+  color: var(--dimmed);
+}
+
 input:focus {
   outline: 2px solid var(--highlight);
+}
+
+footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--dimmed);
+  width: 100%;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
 }
 
 .mt-1 {
@@ -63,7 +78,7 @@ input:focus {
 }
 
 .output {
-  border: 1px solid var(--light);
+  border: 1px solid var(--dimmed);
   padding: 1rem;
 }
 

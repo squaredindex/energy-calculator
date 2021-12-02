@@ -8,9 +8,12 @@
 
     TODO: get the number of days between two dates
     TODO: get standing charge (daily)
-    TODO: calculate standing charge cost for number of days
+    TODO: calculate standing charge cost multiplied by number of days
 
+    TODO: update the total cost adding (daily charge * number of days)
  */
+
+document.querySelector('#year').textContent = new Date().getFullYear()
 
 const readingStartInput = document.querySelector('#readingStart')
 const readingEndInput = document.querySelector('#readingEnd')
