@@ -17,14 +17,16 @@ body {
 
 main {
   margin: 2rem auto;
-  max-width: 52ch;
+  max-width: 56ch;
   font-size: 1.2rem;
+  padding: 0 0.5rem;
 }
 
 label {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 250px;
 }
 
@@ -69,4 +71,8 @@ input:focus {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+ul li:not(:last-child) {
+  margin-bottom: 1rem;
 }

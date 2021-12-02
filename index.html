@@ -42,6 +42,19 @@
             />
           </label>
         </div>
+
+        <div class="row">
+          <label for="kwhCost">
+            Cost Per kWh (in pence)
+            <input
+              title="Cost Per kWh"
+              id="kwhCost"
+              name="kwhCost"
+              type="number"
+              placeholder="Enter Cost Per kWh"
+            />
+          </label>
+        </div>
       </form>
 
       <h2 class="mt-2">Meter Reading info</h2>
@@ -49,7 +62,12 @@
         <ul>
           <li>
             <strong>kWh Used:</strong>
-            <span id="kwhUsed"></span>
+            <span id="kwhUsedInfo"></span>
+          </li>
+
+          <li>
+            <strong>kWh Cost:</strong>
+            <span id="kwhCostInfo"></span>
           </li>
         </ul>
       </div>

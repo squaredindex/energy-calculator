@@ -14,25 +14,47 @@
 
 const readingStartInput = document.querySelector('#readingStart')
 const readingEndInput = document.querySelector('#readingEnd')
-const kwhUsedInfo = document.querySelector('#kwhUsed')
 
-const kwhPriceInput = document.querySelector('#kwhPrice')
+const kwhUsedInfo = document.querySelector('#kwhUsedInfo')
+const kwhCostInfo = document.querySelector('#kwhCostInfo')
+
+const kwhCostInput = document.querySelector('#kwhCost')
+
+let kwhUsed
+let kwhCost
+
+const formatMoney = num => {
+  const numFormatted = new Intl.NumberFormat('en-GB', {
+    style: 'currency',
+    currency: 'GBP'
+  }).format(num)
+
+  return numFormatted
+}
 
 const updateKwhUsed = _ => {
   let readingStart = readingStartInput.value
   let readingEnd = readingEndInput.value
 
-  let kwhUsed = readingEnd - readingStart
+  kwhUsed = readingEnd - readingStart
 
   if (kwhUsed < 0) return
 
   kwhUsedInfo.textContent = kwhUsed
 }
 
-const updateKwhCost = _ => {}
+const updateKwhCost = _ => {
+  kwhCost = (kwhUsed * kwhCostInput.value) / 100
+  if (kwhCost < 0) return
+
+  kwhCostInfo.textContent = formatMoney(kwhCost)
+}
 
 // *Update numbers
 // TODO: Select these by relevant group instead of document
 document.querySelectorAll('input[type="number"]').forEach(input => {
-  input.addEventListener('input', updateKwhUsed)
+  input.addEventListener('input', _ => {
+    updateKwhUsed()
+    updateKwhCost()
+  })
 })
