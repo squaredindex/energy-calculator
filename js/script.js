@@ -13,8 +13,6 @@
     TODO: update the total cost adding (daily charge * number of days)
  */
 
-document.querySelector('#year').textContent = new Date().getFullYear()
-
 const readingStartInput = document.querySelector('#readingStart')
 const readingEndInput = document.querySelector('#readingEnd')
 const monthsInput = document.querySelector('#numMonths')

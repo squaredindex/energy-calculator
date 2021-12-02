@@ -52,16 +52,6 @@ input:focus {
   outline: 2px solid var(--highlight);
 }
 
-footer {
-  text-align: center;
-  font-size: 0.75rem;
-  color: var(--dimmed);
-  width: 100%;
-  padding: 1rem;
-  position: absolute;
-  bottom: 0;
-}
-
 .mt-1 {
   margin-top: 1rem;
 }
