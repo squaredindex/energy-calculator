@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Energy Calculator</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <h1>Energy Calculator</h1>
+      <form>
+        <div class="row">
+          <label for="readingStart">
+            Starting Reading (kWh)
+            <input
+              title="Starting Reading"
+              id="readingStart"
+              name="readingStart"
+              type="number"
+              placeholder="Enter Starting Reading"
+            />
+          </label>
+
+          <label for="readingEnd">
+            Ending Reading (kWh)
+            <input
+              title="Ending Reading"
+              id="readingEnd"
+              name="readingEnd"
+              type="number"
+              placeholder="Enter Ending Reading"
+            />
+          </label>
+        </div>
+      </form>
+
+      <h2 class="mt-2">Meter Reading info</h2>
+      <div class="output mt-1">
+        <ul>
+          <li>
+            <strong>kWh Used:</strong>
+            <span id="kwhUsed"></span>
+          </li>
+        </ul>
+      </div>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
