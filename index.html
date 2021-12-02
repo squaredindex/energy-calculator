@@ -54,6 +54,17 @@
               placeholder="Enter Cost Per kWh"
             />
           </label>
+
+          <label for="numMonths">
+            Number of months
+            <input
+              title="Number of months"
+              id="numMonths"
+              name="numMonths"
+              type="number"
+              placeholder="e.g. 12"
+            />
+          </label>
         </div>
       </form>
 
@@ -66,8 +77,13 @@
           </li>
 
           <li>
-            <strong>kWh Cost:</strong>
+            <strong>Total Cost:</strong>
             <span id="kwhCostInfo"></span>
+          </li>
+
+          <li>
+            <strong>Average Monthly Cost:</strong>
+            <span id="kwhAveCostInfo"></span>
           </li>
         </ul>
       </div>

@@ -14,14 +14,17 @@
 
 const readingStartInput = document.querySelector('#readingStart')
 const readingEndInput = document.querySelector('#readingEnd')
+const monthsInput = document.querySelector('#numMonths')
 
 const kwhUsedInfo = document.querySelector('#kwhUsedInfo')
 const kwhCostInfo = document.querySelector('#kwhCostInfo')
+const kwhAveCostInfo = document.querySelector('#kwhAveCostInfo')
 
 const kwhCostInput = document.querySelector('#kwhCost')
 
 let kwhUsed
 let kwhCost
+let months
 
 const formatMoney = num => {
   const numFormatted = new Intl.NumberFormat('en-GB', {
@@ -45,9 +48,15 @@ const updateKwhUsed = _ => {
 
 const updateKwhCost = _ => {
   kwhCost = (kwhUsed * kwhCostInput.value) / 100
-  if (kwhCost < 0) return
+  if (kwhCost <= 0) return (kwhCostInfo.textContent = '£0.00')
 
   kwhCostInfo.textContent = formatMoney(kwhCost)
+
+  let months = monthsInput.value
+
+  if (months <= 0 || kwhCost == null)
+    return (kwhAveCostInfo.textContent = '£0.00')
+  kwhAveCostInfo.textContent = formatMoney(kwhCost / months)
 }
 
 // *Update numbers
