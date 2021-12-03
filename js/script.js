@@ -28,7 +28,7 @@ const standingChargeInput = document.querySelector('#standingCharge')
 
 let kwhUsed
 let kwhCost
-let standingCharge
+let standingChargeCost
 
 let months
 let days
@@ -66,10 +66,14 @@ const updateKwhCost = _ => {
   kwhCost = (kwhUsed * kwhCostInput.value) / 100
   if (kwhCost <= 0) return (kwhCostInfo.textContent = '£0.00')
 
-  if (days < 1) return
-  standardChargeCost = (standingChargeInput.value * days) / 100
+  if (isNaN(days)) return (kwhCostInfo.textContent = 'Please add reading dates')
 
-  kwhCostInfo.textContent = formatMoney(kwhCost + standardChargeCost)
+  standingChargeCost = (standingChargeInput.value * days) / 100
+
+  if (isNaN(standingChargeCost))
+    return (kwhCostInfo.textContent = 'Please enter standing charge')
+
+  kwhCostInfo.textContent = formatMoney(kwhCost + standingChargeCost)
 }
 
 // *Update numbers
