@@ -44,8 +44,20 @@
         </div>
 
         <div class="row">
+          <label for="dateStart">
+            First Reading Date
+            <input id="dateStartInput" type="date" />
+          </label>
+
+          <label for="dateEnd">
+            Last Reading Date
+            <input id="dateEndInput" type="date" />
+          </label>
+        </div>
+
+        <div class="row">
           <label for="kwhCost">
-            Cost Per kWh (in pence)
+            Cost Per kWh (pence)
             <input
               title="Cost Per kWh"
               id="kwhCost"
@@ -55,8 +67,19 @@
             />
           </label>
 
+          <label for="standingCharge">
+            Standing Charge (pence)
+            <input
+              title="Standing Charge"
+              id="standingCharge"
+              name="standingCharge"
+              type="number"
+              placeholder="Enter Standing Charge"
+            />
+          </label>
+          <!--
           <label for="numMonths">
-            Number of months
+            Number of Months
             <input
               title="Number of months"
               id="numMonths"
@@ -64,7 +87,7 @@
               type="number"
               placeholder="e.g. 12"
             />
-          </label>
+          </label> -->
         </div>
       </form>
 
@@ -81,10 +104,10 @@
             <span id="kwhCostInfo"></span>
           </li>
 
-          <li>
+          <!-- <li>
             <strong>Average Monthly Cost:</strong>
             <span id="kwhAveCostInfo"></span>
-          </li>
+          </li> -->
         </ul>
       </div>
     </main>

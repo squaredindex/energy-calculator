@@ -15,17 +15,23 @@
 
 const readingStartInput = document.querySelector('#readingStart')
 const readingEndInput = document.querySelector('#readingEnd')
-const monthsInput = document.querySelector('#numMonths')
+// const monthsInput = document.querySelector('#numMonths')
+const dateStartInput = document.querySelector('#dateStartInput')
+const dateEndInput = document.querySelector('#dateEndInput')
 
 const kwhUsedInfo = document.querySelector('#kwhUsedInfo')
 const kwhCostInfo = document.querySelector('#kwhCostInfo')
 const kwhAveCostInfo = document.querySelector('#kwhAveCostInfo')
 
 const kwhCostInput = document.querySelector('#kwhCost')
+const standingChargeInput = document.querySelector('#standingCharge')
 
 let kwhUsed
 let kwhCost
+let standingCharge
+
 let months
+let days
 
 const formatMoney = num => {
   const numFormatted = new Intl.NumberFormat('en-GB', {
@@ -34,6 +40,15 @@ const formatMoney = num => {
   }).format(num)
 
   return numFormatted
+}
+
+const updateDates = _ => {
+  let dateStart = new Date(dateStartInput.value)
+  let dateEnd = new Date(dateEndInput.value)
+
+  const dateDiff = dateEnd.getTime() - dateStart.getTime()
+  months = Math.ceil(dateDiff / (1000 * 3600 * 12))
+  days = Math.ceil(dateDiff / (1000 * 3600 * 24))
 }
 
 const updateKwhUsed = _ => {
@@ -51,20 +66,18 @@ const updateKwhCost = _ => {
   kwhCost = (kwhUsed * kwhCostInput.value) / 100
   if (kwhCost <= 0) return (kwhCostInfo.textContent = '£0.00')
 
-  kwhCostInfo.textContent = formatMoney(kwhCost)
+  if (days < 1) return
+  standardChargeCost = (standingChargeInput.value * days) / 100
 
-  let months = monthsInput.value
-
-  if (months <= 0 || kwhCost == null)
-    return (kwhAveCostInfo.textContent = '£0.00')
-  kwhAveCostInfo.textContent = formatMoney(kwhCost / months)
+  kwhCostInfo.textContent = formatMoney(kwhCost + standardChargeCost)
 }
 
 // *Update numbers
 // TODO: Select these by relevant group instead of document
-document.querySelectorAll('input[type="number"]').forEach(input => {
+document.querySelectorAll('input').forEach(input => {
   input.addEventListener('input', _ => {
     updateKwhUsed()
     updateKwhCost()
+    updateDates()
   })
 })

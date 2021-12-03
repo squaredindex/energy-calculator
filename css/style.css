@@ -39,6 +39,10 @@ label input {
   border-radius: 0.25rem;
 }
 
+input[type='date'] {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 550px) {
   label {
     max-width: 100%;
@@ -58,7 +62,6 @@ input::placeholder {
 input:focus {
   outline: 4px solid var(--highlight);
   caret-color: var(--highlight);
-  caret-shape: block;
 }
 
 .mt-1 {
