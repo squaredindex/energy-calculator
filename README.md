@@ -6,6 +6,8 @@ I built this because I was going through the hell on earth that is dealing with 
 
 Also why do maths when a computer could do it for you?
 
+Check out a [demo here](https://mlevett.com/workshop/kwh/).
+
 The calculations are based on the UK energy bills but could be modified for elsewhere.
 
 This code is a little messy I know, but it works, I didn't have much time to do this, please feel free to improve it.
