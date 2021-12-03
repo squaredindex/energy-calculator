@@ -63,15 +63,20 @@ const updateKwhUsed = _ => {
 }
 
 const updateKwhCost = _ => {
+  if (isNaN(days) && standingChargeInput.value > 0)
+    return (kwhCostInfo.textContent = 'Please add reading dates')
+
   kwhCost = (kwhUsed * kwhCostInput.value) / 100
   if (kwhCost <= 0) return (kwhCostInfo.textContent = '£0.00')
 
-  if (isNaN(days)) return (kwhCostInfo.textContent = 'Please add reading dates')
-
   standingChargeCost = (standingChargeInput.value * days) / 100
 
-  if (isNaN(standingChargeCost))
-    return (kwhCostInfo.textContent = 'Please enter standing charge')
+  if (isNaN(standingChargeCost) || isNaN(days))
+    return (kwhCostInfo.textContent = `${formatMoney(
+      kwhCost
+    )} (not inc standing charge)`)
+
+  console.log(standingChargeInput.value)
 
   kwhCostInfo.textContent = formatMoney(kwhCost + standingChargeCost)
 }
