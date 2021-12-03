@@ -1,21 +1,6 @@
-/*
-    TODO: get readingStart and readingEnd
-    TODO: define kwh used between readingStart and readingEnd
-          * get the difference between them
-    TODO: get price per kwh
-    TODO: format that price into currency: pounds
-    TODO: multiply the price per kwh by the kwhUsed
-
-    TODO: get the number of days between two dates
-    TODO: get standing charge (daily)
-    TODO: calculate standing charge cost multiplied by number of days
-
-    TODO: update the total cost adding (daily charge * number of days)
- */
-
 const readingStartInput = document.querySelector('#readingStart')
 const readingEndInput = document.querySelector('#readingEnd')
-// const monthsInput = document.querySelector('#numMonths')
+
 const dateStartInput = document.querySelector('#dateStartInput')
 const dateEndInput = document.querySelector('#dateEndInput')
 
@@ -81,8 +66,7 @@ const updateKwhCost = _ => {
   kwhCostInfo.textContent = formatMoney(kwhCost + standingChargeCost)
 }
 
-// *Update numbers
-// TODO: Select these by relevant group instead of document
+// Update numbers
 document.querySelectorAll('input').forEach(input => {
   input.addEventListener('input', _ => {
     updateKwhUsed()
