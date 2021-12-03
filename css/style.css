@@ -1,13 +1,13 @@
 :root {
   --dark: #111827;
   --light: #f9fafb;
-  --highlight: #fbbf24;
+  --highlight: #db2777;
   --dimmed: #6b7280;
 }
 
 ::selection {
   background: var(--highlight);
-  color: #111827;
+  color: var(--light);
 }
 
 body {
@@ -36,6 +36,13 @@ label input {
   padding: 0.25rem;
   border-radius: 0;
   border: 1px solid var(--light);
+  border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 550px) {
+  label {
+    max-width: 100%;
+  }
 }
 
 input::-webkit-outer-spin-button,
@@ -49,7 +56,9 @@ input::placeholder {
 }
 
 input:focus {
-  outline: 2px solid var(--highlight);
+  outline: 4px solid var(--highlight);
+  caret-color: var(--highlight);
+  caret-shape: block;
 }
 
 .mt-1 {
