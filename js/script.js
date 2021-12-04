@@ -32,8 +32,8 @@ const updateDates = _ => {
   let dateEnd = new Date(dateEndInput.value)
 
   const dateDiff = dateEnd.getTime() - dateStart.getTime()
-  months = Math.ceil(dateDiff / (1000 * 3600 * 12))
   days = Math.ceil(dateDiff / (1000 * 3600 * 24))
+  months = Math.ceil(days / 31)
 }
 
 const updateKwhUsed = _ => {
@@ -61,9 +61,9 @@ const updateKwhCost = _ => {
       kwhCost
     )} (not inc standing charge)`)
 
-  console.log(standingChargeInput.value)
-
-  kwhCostInfo.textContent = formatMoney(kwhCost + standingChargeCost)
+  kwhCostInfo.textContent = `${formatMoney(
+    kwhCost + standingChargeCost
+  )} in ${days} days`
 }
 
 // Update numbers
