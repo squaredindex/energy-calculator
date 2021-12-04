@@ -43,6 +43,14 @@ input[type='date'] {
   cursor: pointer;
 }
 
+input::-webkit-datetime-edit-day-field:focus,
+input::-webkit-datetime-edit-month-field:focus,
+input::-webkit-datetime-edit-year-field:focus {
+  color: var(--light);
+  border-radius: 0.25rem;
+  background: var(--highlight);
+}
+
 @media screen and (max-width: 550px) {
   label {
     max-width: 100%;
