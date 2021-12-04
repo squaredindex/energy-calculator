@@ -1,5 +1,6 @@
 :root {
   --dark: #111827;
+  --dark-secondary: #1f2937;
   --light: #f9fafb;
   --highlight: #db2777;
   --dimmed: #6b7280;
@@ -100,4 +101,28 @@ input:focus {
 
 ul li:not(:last-child) {
   margin-bottom: 1rem;
+}
+
+details summary {
+  cursor: pointer;
+}
+
+details article {
+  background: var(--dark-secondary);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+details p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+details h2 {
+  font-size: 1.1rem;
+}
+
+details img {
+  filter: hue-rotate(130deg) saturate(3) invert(1);
+  mix-blend-mode: screen;
 }
