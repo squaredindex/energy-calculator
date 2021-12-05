@@ -105,6 +105,11 @@ ul li:not(:last-child) {
 
 details summary {
   cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+details summary:focus {
+  outline: 4px solid var(--highlight);
 }
 
 details article {
