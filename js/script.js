@@ -46,7 +46,19 @@ const updateKwhUsed = _ => {
 
   if (kwhUsed < 0) return
 
-  kwhUsedInfo.textContent = `${kwhUsed} over ${days} days`
+  kwhUsedInfo.textContent = `
+    ${kwhUsed} over ${days} days.
+    An average of ${Math.ceil(kwhUsed / days)} kWh per day
+    or ${Math.ceil(kwhUsed / months)} kWh per month.
+  `
+
+  if (months <= 1) {
+    return (kwhUsedInfo.textContent = `
+    ${kwhUsed} over ${days} days.
+    An average of ${Math.ceil(kwhUsed / days)} kWh per day.
+  `)
+  }
+
   if (isNaN(days)) return (kwhUsedInfo.textContent = kwhUsed)
 }
 
@@ -71,7 +83,7 @@ const updateKwhCost = _ => {
   if (!isNaN(days)) {
     kwhCostInfo.textContent = `
       ${formatMoney(totalCost)}
-      at an average of ${formatMoney(totalCost / days)} per day
+      at an average of ${formatMoney(totalCost / days)} per day.
     `
   }
 }
