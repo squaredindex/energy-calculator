@@ -34,6 +34,8 @@ const updateDates = _ => {
   const dateDiff = dateEnd.getTime() - dateStart.getTime()
   days = Math.ceil(dateDiff / (1000 * 3600 * 24))
   months = Math.ceil(days / 31)
+
+  updateKwhUsed()
   updateKwhCost()
 }
 
@@ -45,7 +47,8 @@ const updateKwhUsed = _ => {
 
   if (kwhUsed < 0) return
 
-  kwhUsedInfo.textContent = kwhUsed
+  kwhUsedInfo.textContent = `${kwhUsed} over ${days} days`
+  if (isNaN(days)) return (kwhUsedInfo.textContent = kwhUsed)
 }
 
 const updateKwhCost = _ => {
@@ -62,9 +65,7 @@ const updateKwhCost = _ => {
       kwhCost
     )} (not inc standing charge)`)
 
-  kwhCostInfo.textContent = `${formatMoney(
-    kwhCost + standingChargeCost
-  )} in ${days} days`
+  kwhCostInfo.textContent = formatMoney(kwhCost + standingChargeCost)
 }
 
 // Update numbers
