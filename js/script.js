@@ -34,6 +34,7 @@ const updateDates = _ => {
   const dateDiff = dateEnd.getTime() - dateStart.getTime()
   days = Math.ceil(dateDiff / (1000 * 3600 * 24))
   months = Math.ceil(days / 31)
+  updateKwhCost()
 }
 
 const updateKwhUsed = _ => {
