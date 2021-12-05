@@ -6,7 +6,6 @@ const dateEndInput = document.querySelector('#dateEndInput')
 
 const kwhUsedInfo = document.querySelector('#kwhUsedInfo')
 const kwhCostInfo = document.querySelector('#kwhCostInfo')
-const kwhAveCostInfo = document.querySelector('#kwhAveCostInfo')
 
 const kwhCostInput = document.querySelector('#kwhCost')
 const standingChargeInput = document.querySelector('#standingCharge')
@@ -65,7 +64,16 @@ const updateKwhCost = _ => {
       kwhCost
     )} (not inc standing charge)`)
 
-  kwhCostInfo.textContent = formatMoney(kwhCost + standingChargeCost)
+  const totalCost = kwhCost + standingChargeCost
+
+  kwhCostInfo.textContent = formatMoney(totalCost)
+
+  if (!isNaN(days)) {
+    kwhCostInfo.textContent = `
+      ${formatMoney(totalCost)}
+      at an average of ${formatMoney(totalCost / days)} per day
+    `
+  }
 }
 
 // Update numbers
