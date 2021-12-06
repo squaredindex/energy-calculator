@@ -17,6 +17,16 @@ body {
   color: var(--light);
 }
 
+a {
+  color: var(--highlight);
+  text-decoration: none;
+}
+
+a:focus {
+  outline: 2px solid var(--highlight);
+  border-radius: 0.25rem;
+}
+
 main {
   margin: 2rem auto;
   max-width: 56ch;
