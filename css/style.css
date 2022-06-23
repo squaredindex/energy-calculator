@@ -12,7 +12,7 @@
 }
 
 body {
-  font-family: 'Poppins', helvetica, sans-serif;
+  font-family: 'Poppins', 'open sans', sans-serif;
   background: var(--dark);
   color: var(--light);
 }
@@ -48,6 +48,8 @@ label input {
   border-radius: 0;
   border: 1px solid var(--light);
   border-radius: 0.25rem;
+  min-height: 40px;
+  line-height: 1;
 }
 
 input[type='date'] {
